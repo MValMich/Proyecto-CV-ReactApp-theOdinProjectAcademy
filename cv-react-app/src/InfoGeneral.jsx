@@ -1,49 +1,46 @@
-import './App.css'
-import React, { Children } from 'react'
-import { useState } from 'react'
+import React from 'react';
 
-// export const [nomberCompleto, setNombreCompleto] = useState('')
-export function InfoGeneral() {
-const [nomberCompleto, setNombreCompleto] = useState('')
-function controlNombreCompleto(e) {
-    setNombreCompleto(e.target.value)
-}
-    const [email, setEmail] = useState('')
-function controlEmail(e) {
-    setEmail(e.target.value)
-}
-    const [fono, setFono] = useState('')
-function controlFono(e) {
-    setFono(e.target.value)
-}
+export function InfoGeneral({ 
+  nombre, setNombre, 
+  email, setEmail, 
+  fono, setFono 
+}) {
+  const handleNombreChange = (e) => {
+    setNombre(e.target.value.replace(/[&<>"']/gi, ''));
+  };
 
-    return (
-        <>
-        <h2>Info General</h2>
-       <form >
-        <input
-        placeholder='Nombre Completo: '
-        value={nomberCompleto.replace(/[&<>"']/gi,'')}
-        onChange={controlNombreCompleto}
-        />
-        <input
-        placeholder='Email: '
-        value={email.replace(/[&<>"']/gi,'')}
-        onChange={controlEmail}
-        />
-        <input
-        placeholder='Fono: '
-        value={fono.replace(/[&<>"']/gi,'')}
-        onChange={controlFono}
-        />
-<button onClick={()=>{
-nomberCompleto = ''
-email = ''
-fono = ''
-}}>editar</button>
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value.replace(/[&<>"']/gi, ''));
+  };
 
-       </form>
-        </>
-    )
+  const handleFonoChange = (e) => {
+    setFono(e.target.value.replace(/[&<>"']/gi, ''));
+  };
+
+// Editar input: Info General
+const inputManejarEdicion = () => {
+setNombre('') 
+setEmail('') 
+setFono('') 
 }
 
+  return (
+    <div>
+      <h2>Info General</h2>
+      <label>
+        <input placeholder='* Nombre completo:' type="text" value={nombre} maxLength={45} onChange={handleNombreChange} required />
+      </label>
+
+      <label>
+        <input placeholder='* E-mail:' type="email" value={email} maxLength={45} onChange={handleEmailChange} required />
+      </label>
+
+      <label>
+        <input placeholder='* Fono:' type="tel" value={fono} maxLength={15} onChange={handleFonoChange} required />
+      </label>
+      
+      <button type='button' onClick={inputManejarEdicion}>editar</button>
+
+    </div>
+  );
+}

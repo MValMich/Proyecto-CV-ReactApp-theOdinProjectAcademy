@@ -1,48 +1,47 @@
-import './App.css'
-import { useState } from 'react'
-import React from 'react'
 
-export function Educacion () {
+import React from 'react';
 
-const [titulo, setTitulo] = useState('')
-function controlTitulo(e) {
-    setTitulo(e.target.value.replace(/[&<>"']/gi, ''))
+export function Educacion({ 
+  titulo, setTitulo, 
+  institucion, setInstitucion, 
+  fechaEstudios, setFechaEstudios 
+}) {
+  // Manejo Cambio Estado inicial: titulo / institución / fechaEstudios
+  const tituloMamejoCambio = (e) => {
+    setTitulo(e.target.value.replace(/[&<>"']/gi, ''));
+  };
+
+  const institucionManejoCabio = (e) => {
+    setInstitucion(e.target.value.replace(/[&<>"']/gi, ''));
+  };
+
+  const fechaEstudiosManejoCambio = (e) => {
+    setFechaEstudios(e.target.value.replace(/[&<>"']/gi, ''));
+  };
+
+// Editar input: Educación
+const inputManejarEdicion = () => {
+setTitulo('') 
+setInstitucion('') 
+setFechaEstudios('') 
 }
-const [institucion, setInstitucion] = useState('')
-function controlInstitucion(e) {
-    setInstitucion(e.target.value.replace(/[&<>"']/gi, ''))
-}
-const [fechaEstudios, setFechaEstudios] = useState('')
-function controlFechaEstudios(e) {
-    setFechaEstudios(e.target.value.replace(/[&<>"']/gi, ''))
-}
 
-    return( 
-  <>
-     <h2>Experiencia</h2>
-       <form >
-        <input
-        placeholder='Título: '
-        value={titulo.replace(/[&<>"']/gi,'')}
-        onChange={controlTitulo}
-        />
-        <input
-        placeholder='Institución: '
-        value={institucion.replace(/[&<>"']/gi,'')}
-        onChange={controlInstitucion}
-        />
-        <input
-        placeholder='Fecha desde/hasta: '
-        value={fechaEstudios.replace(/[&<>"']/gi,'')}
-        onChange={controlFechaEstudios}
-        />
-<button onClick={()=>{
-titulo = ''
-institucion = ''
-fechaEstudios = ''
-}}>editar</button>
+  return (
+    <div>
+      <h2>Educación</h2>
+      <label>
+        <input placeholder='* Título:'  type="text" value={titulo} maxLength={45} onChange={tituloMamejoCambio} required />
+      </label>
 
-       </form>
-    </>
-    )
-  }
+      <label>
+        <input placeholder='* Institución:' type="text" value={institucion} maxLength={45} onChange={institucionManejoCabio} required />
+      </label>
+
+      <label>
+        <input placeholder='* Fecha de estudios:' type="text" value={fechaEstudios} maxLength={45} onChange={fechaEstudiosManejoCambio} required />
+      </label>
+
+      <button type='button' onClick={inputManejarEdicion}>editar</button>
+    </div>
+  );
+}

@@ -28,13 +28,26 @@ body {
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(120deg, blue, grey, black);
 }
-
+#CVcontainer{
+  background: linear-gradient(45deg, blue, yellow, red);
+  padding: 1rem;
+  margin-top: 2rem;
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: black;
 }
-
+h2 {
+  /* font-size: 3.2em; */
+  line-height: 1.1;
+  color: black;
+}
+input {
+  margin: 0.5rem;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -45,6 +58,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 1rem;
 }
 button:hover {
   border-color: #646cff;

@@ -1,53 +1,68 @@
-import './App.css'
+// App.jsx
+import './App.css';
+import React, { useState } from 'react';
+import { InfoGeneral } from './InfoGeneral.jsx';
+import { Educacion } from './Educacion.jsx';
+import { Experiencia } from './Experiencia.jsx';
+import { CVPrevista } from './CVPrevista.jsx';
 
-import { idEmail} from './componentes/InfoGeneral'
-import {SendButton} from './componentes/CVPrevista'
+export function App() {
+  // Estados inicial: InfoGeneral / Educacion / Experiencia
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+  const [fono, setFono] = useState('');
 
-import { useState } from 'react'
-export function App () {
+  const [titulo, setTitulo] = useState('');
+  const [institucion, setInstitucion] = useState('');
+  const [fechaEstudios, setFechaEstudios] = useState('');
 
-    const [nombreCompleto, setNombreCompleto] = useState('')
-function controlNombreCompleto(e){
-    setNombreCompleto(e.target.value)
-}
+  const [empresa, setEmpresa] = useState('');
+  const [cargo, setCargo] = useState('');
+  const [responsabilidad, setResponsabilidad] = useState('');
 
- return (
+  return (
     <>
-    <h1>Curriculum Vitae  </h1>
-    <form onSubmit={e=>e.preventDefault()} >
-        <section id='section-1'>
-            <h2>Info General</h2>
-        <input placeholder='Nombre completo: 'id='idNombre' className='inp-Section-1'
-        value={nombreCompleto.replace(/[&<>"']/gi,'')}
-        onChange={controlNombreCompleto}
-        />
-        <input placeholder='Email: ' id='idEmail' className='inp-Section-1' 
-        // value={idEmail}
-        onChange={idEmail}
-        />
-        <input placeholder='Fono: ' id='idFono' className='inp-Section-1' 
-        />
-       
-        
-        </section>
-        <section>
-            <h2>Educación</h2>
-        <input placeholder='Nombre completo: ' />
-        <input placeholder='Fono: ' />
-        <input placeholder='Email: ' />
-        </section>
-        <section>
-            <h2>Experiencia</h2>
-        <input placeholder='Nombre completo: ' />
-        <input placeholder='Fono: ' />
-        <input placeholder='Email: ' />
-        </section>
-        <button onClick={SendButton
-        }>Enviar</button>
-    </form>
-    <div id='container'></div>
+      <h1>Curriculum Vitae</h1>
+      
+     {/* Nuevos Estados: InfoGeneral / Educacion / Experiencia */}
+      <InfoGeneral
+        nombre={nombre}
+        setNombre={setNombre}
+        email={email}
+        setEmail={setEmail}
+        fono={fono}
+        setFono={setFono}
+      />
+      <Educacion
+       titulo={titulo}
+        setTitulo={setTitulo}
+       institucion={institucion}
+        setInstitucion={setInstitucion}
+      fechaEstudios={fechaEstudios}
+        setFechaEstudios={setFechaEstudios}
+      />
+      <Experiencia
+       empresa={empresa}
+        setEmpresa={setEmpresa}
+       cargo={cargo}
+        setCargo={setCargo}
+      responsabilidad={responsabilidad}
+        setResponsabilidad={setResponsabilidad}
+      />
+
+     <CVPrevista
+  nombre={nombre}
+  email={email}
+  fono={fono}
+
+  titulo={titulo}
+  institucion={institucion}
+  fechaEstudios={fechaEstudios}
+
+  empresa={empresa}
+  cargo={cargo}
+  responsabilidad={responsabilidad}
+/>
     </>
- )
+  );
 }
-
-
