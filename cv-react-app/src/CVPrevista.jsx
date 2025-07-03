@@ -5,26 +5,31 @@ export function CVPrevista({
   nombre, email, fono, 
   titulo, institucion, fechaEstudios,
   empresa, cargo, responsabilidad,
- }) {
+}) {
+  console.log('Props recibidos en CVPrevista:', {
+    nombre, email, fono, 
+    titulo, institucion, fechaEstudios,
+    empresa, cargo, responsabilidad
+  });
   return (
     < >
     <div id='CVcontainer'>
       <h1>Vista previa</h1>
       <div>
         <h2>Información General</h2>
-        <p> 👤 {nombre}</p>
-        <p> 📧 {email}</p>
-        <p> 📞 {fono}</p>
+        <p translate='no'> 👤 {nombre}</p>
+        <p translate='no'> 📧 {email}</p>
+        <p translate='no'> 📞 {fono}</p>
 
         <h2>Educación</h2>
-        <p> 🎓 {titulo}</p>
-        <p> 🏛 {institucion}</p>
-        <p> 📆 {fechaEstudios}</p>
+        <p translate='no'> 🎓 {titulo}</p>
+        <p translate='no'> 🏛 {institucion}</p>
+        <p translate='no'> 📆 {fechaEstudios}</p>
 
         <h2>Experiencia</h2>
-        <p> 💼 {empresa}</p>
-        <p> 👷🏼‍♂️ {cargo}</p>
-        <p> 🛠 {responsabilidad}</p>
+        <p translate='no'> 💼 {empresa}</p>
+        <p translate='no'> 👷🏼‍♂️ {cargo}</p>
+        <p translate='no'> 🛠 {responsabilidad}</p>
       </div>
 
 <button type='submit'
@@ -73,3 +78,5 @@ export function CVPrevista({
     </>
   );
 }
+
+
