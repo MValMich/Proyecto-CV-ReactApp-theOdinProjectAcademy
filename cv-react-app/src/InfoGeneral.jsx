@@ -6,15 +6,15 @@ export function InfoGeneral({
   fono, setFono 
 }) {
   const handleNombreChange = (e) => {
-    setNombre(e.target.value.replace(/[&<>"']/gi, ''));
+    setNombre(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value.replace(/[&<>"']/gi, ''));
+    setEmail(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
   const handleFonoChange = (e) => {
-    setFono(e.target.value.replace(/[&<>"']/gi, ''));
+    setFono(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
 // Editar input: Info General

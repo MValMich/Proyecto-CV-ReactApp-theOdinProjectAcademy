@@ -8,15 +8,15 @@ export function Experiencia({
 }) {
 // Manejo Cambio Estado inicial: empresa / cargo / responsabilidad
   const empresaMamejoCambio = (e) => {
-    setEmpresa(e.target.value.replace(/[&<>"']/gi, ''));
+    setEmpresa(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
   const cargoManejoCabio = (e) => {
-    setCargo(e.target.value.replace(/[&<>"']/gi, ''));
+    setCargo(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
   const responsabilidadManejoCambio = (e) => {
-    setResponsabilidad(e.target.value.replace(/[&<>"']/gi, ''));
+    setResponsabilidad(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
 // Editar input: Educación

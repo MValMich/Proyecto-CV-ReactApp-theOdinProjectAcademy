@@ -8,15 +8,15 @@ export function Educacion({
 }) {
   // Manejo Cambio Estado inicial: titulo / institución / fechaEstudios
   const tituloMamejoCambio = (e) => {
-    setTitulo(e.target.value.replace(/[&<>"']/gi, ''));
+    setTitulo(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
   const institucionManejoCabio = (e) => {
-    setInstitucion(e.target.value.replace(/[&<>"']/gi, ''));
+    setInstitucion(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
   const fechaEstudiosManejoCambio = (e) => {
-    setFechaEstudios(e.target.value.replace(/[&<>"']/gi, ''));
+    setFechaEstudios(e.target.value.replace(/[<>{}()'"&%\-=:#?|]/gi,""));
   };
 
 // Editar input: Educación
